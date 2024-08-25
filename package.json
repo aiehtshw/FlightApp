@@ -6,6 +6,9 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "prettier": "prettier -w .",
+    "ts:check": "tsc",
+    "pr-quality-check": "prettier --check . && npm run ts:check && npm run lint",
     "start": "react-native start",
     "test": "jest"
   },
