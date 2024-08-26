@@ -7,8 +7,13 @@ import {LocalizedString} from '../../utils/languages';
 import {
   ActiveCalendarHeartIcon,
   ActivePlaneIcon,
-  ActiveUserIcon, PassiveCalendarHeartIcon, PassivePlaneIcon, PassiveUserIcon,
+  ActiveUserIcon,
+  PassiveCalendarHeartIcon,
+  PassivePlaneIcon,
+  PassiveUserIcon,
 } from '../../assets';
+import PlansNavigator from '../plansTab/PlansNavigator';
+import MeNavigator from '../meTab/MeNavigator';
 
 const Tabs = createBottomTabNavigator();
 
@@ -20,7 +25,11 @@ const TabNavigator = () => {
       case TabNavigatorRoutes.MeNavigator:
         return focused ? <ActiveUserIcon /> : <PassiveUserIcon />;
       case TabNavigatorRoutes.PlansNavigator:
-        return focused ? <ActiveCalendarHeartIcon /> : <PassiveCalendarHeartIcon />;
+        return focused ? (
+          <ActiveCalendarHeartIcon />
+        ) : (
+          <PassiveCalendarHeartIcon />
+        );
     }
   };
   return (
@@ -31,7 +40,7 @@ const TabNavigator = () => {
       initialRouteName={TabNavigatorRoutes.FlightNavigator}>
       <Tabs.Screen
         name={TabNavigatorRoutes.PlansNavigator}
-        component={FlightsNavigator}
+        component={PlansNavigator}
         options={{
           title: LocalizedString.PlansNavigator,
           tabBarIcon: ({focused}) =>
@@ -51,7 +60,7 @@ const TabNavigator = () => {
       />
       <Tabs.Screen
         name={TabNavigatorRoutes.MeNavigator}
-        component={FlightsNavigator}
+        component={MeNavigator}
         options={{
           title: LocalizedString.MeNavigator,
           tabBarIcon: ({focused}) =>
