@@ -1,11 +1,14 @@
 import React from 'react';
-import {Text} from 'react-native';
 import Background from '../../../components/background';
+import EmptyCard from './components/emptyCard';
 
 const Dashboard = () => {
+  const onAddFlightPressed = () => {
+    console.log('Add Flight Pressed');
+  };
   return (
     <Background>
-      <Text>Hello</Text>
+      <EmptyCard onPress={onAddFlightPressed} />
     </Background>
   );
 };
