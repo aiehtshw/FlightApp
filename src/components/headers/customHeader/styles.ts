@@ -3,6 +3,7 @@ import {Colors} from '../../../utils/colors';
 
 export default StyleSheet.create({
   container: {
+    backgroundColor: Colors.White,
     height: 52,
     paddingHorizontal: 16,
     flexDirection: 'row',
