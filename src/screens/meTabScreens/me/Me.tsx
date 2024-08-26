@@ -1,12 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
-import Background from '../../../components/background';
+import {Text, View} from 'react-native';
+import {LocalizedString} from '../../../utils/languages';
+import generalStyles from '../../../styles/generalStyles';
 
 const Me = () => {
   return (
-    <Background>
-      <Text>Hello</Text>
-    </Background>
+    <View style={generalStyles.emptyPageContainer}>
+      <Text>{LocalizedString.emptyPage}</Text>
+    </View>
   );
 };
 
