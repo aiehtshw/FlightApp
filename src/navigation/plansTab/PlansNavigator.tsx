@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const PlansNavigator = () => {
   const customHeader = () => {
-    return <CustomHeader title={LocalizedString.FlightNavigator} />;
+    return <CustomHeader title={LocalizedString.PlansNavigator} />;
   };
   return (
     <Stack.Navigator initialRouteName={PlansNavigatorRoutes.Plans}>
