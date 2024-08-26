@@ -6,3 +6,4 @@ export const PassiveCalendarHeartIcon =
   require('./src/passive-calendar-heart.svg').default;
 export const PassivePlaneIcon = require('./src/passive-plane.svg').default;
 export const PassiveUserIcon = require('./src/passive-user.svg').default;
+export const PlusIcon = require('./src/plus.svg').default;
