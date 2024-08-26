@@ -5,6 +5,7 @@ const tabBarTitles = {
 };
 
 export default {
+  emptyPage: 'This Page is Empty',
   language: 'en',
   ...tabBarTitles,
 };
