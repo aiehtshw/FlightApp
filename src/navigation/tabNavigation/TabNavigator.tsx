@@ -2,21 +2,25 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {TabNavigatorRoutes} from './tabNavigatorRoutes';
 import FlightsNavigator from '../flightsTab/FlightsNavigator';
-import {CalendarHeartIcon, PlaneIcon, UserIcon} from '../../assets';
 import {Colors} from '../../utils/colors';
 import {LocalizedString} from '../../utils/languages';
+import {
+  ActiveCalendarHeartIcon,
+  ActivePlaneIcon,
+  ActiveUserIcon, PassiveCalendarHeartIcon, PassivePlaneIcon, PassiveUserIcon,
+} from '../../assets';
 
 const Tabs = createBottomTabNavigator();
 
 const TabNavigator = () => {
-  const chooseIcon = (routeName: TabNavigatorRoutes) => {
+  const chooseIcon = (routeName: TabNavigatorRoutes, focused: boolean) => {
     switch (routeName) {
       case TabNavigatorRoutes.FlightNavigator:
-        return <PlaneIcon />;
+        return focused ? <ActivePlaneIcon /> : <PassivePlaneIcon />;
       case TabNavigatorRoutes.MeNavigator:
-        return <UserIcon />;
+        return focused ? <ActiveUserIcon /> : <PassiveUserIcon />;
       case TabNavigatorRoutes.PlansNavigator:
-        return <CalendarHeartIcon />;
+        return focused ? <ActiveCalendarHeartIcon /> : <PassiveCalendarHeartIcon />;
     }
   };
   return (
@@ -30,7 +34,8 @@ const TabNavigator = () => {
         component={FlightsNavigator}
         options={{
           title: LocalizedString.PlansNavigator,
-          tabBarIcon: () => chooseIcon(TabNavigatorRoutes.PlansNavigator),
+          tabBarIcon: ({focused}) =>
+            chooseIcon(TabNavigatorRoutes.PlansNavigator, focused),
           headerShown: false,
         }}
       />
@@ -39,7 +44,8 @@ const TabNavigator = () => {
         component={FlightsNavigator}
         options={{
           title: LocalizedString.FlightNavigator,
-          tabBarIcon: () => chooseIcon(TabNavigatorRoutes.FlightNavigator),
+          tabBarIcon: ({focused}) =>
+            chooseIcon(TabNavigatorRoutes.FlightNavigator, focused),
           headerShown: false,
         }}
       />
@@ -48,7 +54,8 @@ const TabNavigator = () => {
         component={FlightsNavigator}
         options={{
           title: LocalizedString.MeNavigator,
-          tabBarIcon: () => chooseIcon(TabNavigatorRoutes.MeNavigator),
+          tabBarIcon: ({focused}) =>
+            chooseIcon(TabNavigatorRoutes.MeNavigator, focused),
           headerShown: false,
         }}
       />
