@@ -1,21 +1,21 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {FlightNavigatorRoutes} from './flightNavigatorRoutes';
-import Dashboard from '../../screens/flightsTabScreens/dashboard/Dashboard';
+import {MeNavigatorRoutes} from './meNavigatorRoutes';
+import Me from '../../screens/meTabScreens/me/Me';
 import CustomHeader from '../../components/headers/customHeader';
 import {LocalizedString} from '../../utils/languages';
 
 const Stack = createNativeStackNavigator();
 
-const HomeNavigator = () => {
+const MeNavigator = () => {
   const customHeader = () => {
     return <CustomHeader title={LocalizedString.FlightNavigator} />;
   };
   return (
-    <Stack.Navigator initialRouteName={FlightNavigatorRoutes.Dashboard}>
+    <Stack.Navigator initialRouteName={MeNavigatorRoutes.Me}>
       <Stack.Screen
-        name={FlightNavigatorRoutes.Dashboard}
-        component={Dashboard}
+        name={MeNavigatorRoutes.Me}
+        component={Me}
         options={{
           header: customHeader,
         }}
@@ -24,4 +24,4 @@ const HomeNavigator = () => {
   );
 };
 
-export default HomeNavigator;
+export default MeNavigator;
