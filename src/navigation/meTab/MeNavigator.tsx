@@ -8,15 +8,16 @@ import {LocalizedString} from '../../utils/languages';
 const Stack = createNativeStackNavigator();
 
 const MeNavigator = () => {
+  const customHeader = () => {
+    return <CustomHeader title={LocalizedString.FlightNavigator} />;
+  };
   return (
     <Stack.Navigator initialRouteName={MeNavigatorRoutes.Me}>
       <Stack.Screen
         name={MeNavigatorRoutes.Me}
         component={Me}
         options={{
-          header: () => {
-            return <CustomHeader title={LocalizedString.MeNavigator} />;
-          },
+          header: customHeader,
         }}
       />
     </Stack.Navigator>
