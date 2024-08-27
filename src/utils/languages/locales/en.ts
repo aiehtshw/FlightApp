@@ -3,6 +3,7 @@ const dashboardTexts = {
   letsGetStarted:
     "Let's get started on your jet lag plan! Add your upcoming flights to begin your journey.",
   noFlightsAdded: 'No Flights Added Yet',
+  removeFlight: 'Remove Flight',
 };
 
 const tabBarTitles = {

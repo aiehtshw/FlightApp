@@ -1,19 +1,53 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 import {TicketInterface} from '../../../../../redux/reducers/ticket/ticketInterfaces';
 import {
   LandingIcon,
-  PassivePlaneIcon, PlaneCardIcon,
+  PlaneCardIcon,
   TakeOffIcon,
   TurkishAirlinesIcon,
 } from '../../../../../assets';
 import typography from '../../../../../styles/typography';
 import {Colors} from '../../../../../utils/colors';
+import {useAppDispatch} from '../../../../../redux/store';
+import {openModal} from '../../../../../redux/reducers/ticket/ticketModalSlice';
+import {deleteTicket} from '../../../../../redux/reducers/ticket/ticketSlice';
 
-const TicketItem: React.FC<TicketInterface> = () => {
+const TicketItem: React.FC<TicketInterface> = ({
+  arrivalHour,
+  arrivalCity,
+  arrivalDate,
+  departureDate,
+  departureCity,
+  departureHour,
+  badgeText,
+  flightNumber,
+  airlineCompany,
+}) => {
+  const dispatch = useAppDispatch();
+  const onTicketItemPressed = () => {
+    dispatch(
+      openModal({
+        ticketInfo: {
+          arrivalHour: arrivalHour,
+          arrivalCity: arrivalCity,
+          arrivalDate: arrivalDate,
+          departureDate: departureDate,
+          departureCity: departureCity,
+          departureHour: departureHour,
+          badgeText: badgeText,
+          flightNumber: flightNumber,
+          airlineCompany: airlineCompany,
+        },
+      }),
+    );
+  };
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.7}
+      onPress={onTicketItemPressed}>
       <View style={styles.borderLeft}>
         <View style={styles.leftCardCircle} />
       </View>
@@ -84,7 +118,7 @@ const TicketItem: React.FC<TicketInterface> = () => {
       <View style={styles.borderRight}>
         <View style={styles.rightCardCircle} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

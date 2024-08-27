@@ -13,3 +13,8 @@ export interface TicketInterface {
   departureHour: string;
   flightNumber: string;
 }
+
+export interface TicketModal {
+  isVisible?: boolean;
+  ticketInfo: TicketInterface;
+}
