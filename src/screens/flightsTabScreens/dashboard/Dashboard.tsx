@@ -15,38 +15,33 @@ const Dashboard = () => {
   const ticketState = useAppSelector(state => state.ticket);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    console.log('ticket state', ticketState);
-  }, [ticketState]);
   const onAddFlightPressed = () => {
     dispatch(addTicket(generateTicket()));
   };
-  const onDeleteFlightPressed = () => {
-    dispatch(deleteTicket('asd'));
-  };
+
   return (
     <Background>
       {ticketState.tickets.length === 0 ? (
         <View style={styles.emptyContainer}>
           <EmptyCard onPress={onAddFlightPressed} />
-          <TouchableOpacity onPress={onDeleteFlightPressed}>
-            <Text>delete</Text>
-          </TouchableOpacity>
         </View>
       ) : (
-        ticketState.tickets.map((item, index) => (
-          <TicketItem
-            airlineCompany={''}
-            arrivalCity={''}
-            arrivalDate={''}
-            arrivalHour={''}
-            badgeText={''}
-            departureCity={''}
-            departureDate={''}
-            departureHour={''}
-            flightNumber={''}
-          />
-        ))
+        ticketState.tickets.map((item, index) => {
+          return (
+            <TicketItem
+              key={index}
+              airlineCompany={item.airlineCompany}
+              arrivalCity={item.arrivalCity}
+              arrivalDate={item.arrivalDate}
+              arrivalHour={item.arrivalHour}
+              badgeText={item.badgeText}
+              departureCity={item.departureCity}
+              departureDate={item.departureDate}
+              departureHour={item.departureHour}
+              flightNumber={item.flightNumber}
+            />
+          );
+        })
       )}
     </Background>
   );

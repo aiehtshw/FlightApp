@@ -12,7 +12,6 @@ import typography from '../../../../../styles/typography';
 import {Colors} from '../../../../../utils/colors';
 import {useAppDispatch} from '../../../../../redux/store';
 import {openModal} from '../../../../../redux/reducers/ticket/ticketModalSlice';
-import {deleteTicket} from '../../../../../redux/reducers/ticket/ticketSlice';
 
 const TicketItem: React.FC<TicketInterface> = ({
   arrivalHour,
@@ -45,6 +44,7 @@ const TicketItem: React.FC<TicketInterface> = ({
   };
   return (
     <TouchableOpacity
+      key={flightNumber}
       style={styles.container}
       activeOpacity={0.7}
       onPress={onTicketItemPressed}>
@@ -57,12 +57,12 @@ const TicketItem: React.FC<TicketInterface> = ({
             <TurkishAirlinesIcon />
             <Text
               style={[typography.footnote_semibold, styles.flightNumberText]}>
-              TK 00001 • Turkish Airlines
+              {flightNumber} • {airlineCompany}
             </Text>
           </View>
           <View style={styles.companyContainerRight}>
             <Text style={[typography.caption_1_medium, styles.badgeText]}>
-              9h 50m
+              {badgeText}
             </Text>
           </View>
         </View>
@@ -72,16 +72,16 @@ const TicketItem: React.FC<TicketInterface> = ({
               <TakeOffIcon />
               <Text
                 style={[typography.footnote_regular, styles.flightDateText]}>
-                18 Apr 2024
+                {departureDate}
               </Text>
             </View>
             <Text
               style={[typography.title_3_semibold, {color: Colors.Gray900}]}>
-              Istanbul
+              {departureCity}
             </Text>
             <Text
               style={[typography.footnote_semibold, {color: Colors.Gray700}]}>
-              08:00 AM
+              {departureHour}
             </Text>
           </View>
           <View style={styles.iconPartContainer}>
@@ -95,7 +95,7 @@ const TicketItem: React.FC<TicketInterface> = ({
               <LandingIcon />
               <Text
                 style={[typography.footnote_regular, styles.flightDateText]}>
-                18 Apr 2024
+                {arrivalDate}
               </Text>
             </View>
             <Text
@@ -103,14 +103,14 @@ const TicketItem: React.FC<TicketInterface> = ({
                 typography.title_3_semibold,
                 {color: Colors.Gray900, textAlign: 'right'},
               ]}>
-              Istanbul
+              {arrivalCity}
             </Text>
             <Text
               style={[
                 typography.footnote_semibold,
                 {color: Colors.Gray700, textAlign: 'right'},
               ]}>
-              08:00 AM
+              {arrivalHour}
             </Text>
           </View>
         </View>
