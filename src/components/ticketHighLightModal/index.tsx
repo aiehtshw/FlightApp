@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, Text, TouchableOpacity, View} from 'react-native';
+import {Modal, TouchableOpacity} from 'react-native';
 import {useAppDispatch, useAppSelector} from '../../redux/store';
 import TicketItem from '../../screens/flightsTabScreens/dashboard/components/ticketItem';
 import {deleteTicket} from '../../redux/reducers/ticket/ticketSlice';

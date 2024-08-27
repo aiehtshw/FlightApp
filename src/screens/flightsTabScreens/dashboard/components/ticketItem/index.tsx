@@ -4,7 +4,9 @@ import styles from './styles';
 import {TicketInterface} from '../../../../../redux/reducers/ticket/ticketInterfaces';
 import {
   EllipseIcon,
-  EllipseSymetricIcon, EllipseSymetricWhiteIcon, EllipseWhiteIcon,
+  EllipseSymetricIcon,
+  EllipseSymetricWhiteIcon,
+  EllipseWhiteIcon,
   LandingIcon,
   PlaneCardIcon,
   TakeOffIcon,
