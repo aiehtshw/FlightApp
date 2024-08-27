@@ -8,6 +8,7 @@ import {LocalizedString} from '../../utils/languages';
 import styles from './styles';
 import typography from '../../styles/typography';
 import {closeModal} from '../../redux/reducers/ticket/ticketModalSlice';
+import {BlurView} from '@react-native-community/blur';
 
 const TicketHighLightModal = () => {
   const ticketModalState = useAppSelector(state => state.ticketModal);
@@ -24,6 +25,12 @@ const TicketHighLightModal = () => {
       transparent={true}
       visible={ticketModalState.isVisible}
       animationType="fade">
+      <BlurView
+        style={styles.absolute}
+        blurType="light"
+        blurAmount={10}
+        reducedTransparencyFallbackColor="white"
+      />
       <TouchableOpacity
         style={styles.container}
         activeOpacity={1}
