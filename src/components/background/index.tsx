@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {View} from 'react-native';
 import styles from './styles';
 
 type BackgroundProps = {
@@ -7,7 +7,7 @@ type BackgroundProps = {
 };
 
 const Background: React.FC<BackgroundProps> = ({children}) => {
-  return <ScrollView style={styles.container}>{children}</ScrollView>;
+  return <View style={styles.container}>{children}</View>;
 };
 
 export default Background;

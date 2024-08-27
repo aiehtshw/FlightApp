@@ -43,9 +43,9 @@ export default StyleSheet.create({
     lineHeight: 25,
     letterSpacing: -0.4,
   },
-  title_3_bold: {
+  title_3_semibold: {
     fontSize: 20,
-    fontWeight: '700',
+    fontWeight: '600',
     lineHeight: 25,
     letterSpacing: -0.4,
   },
@@ -172,9 +172,9 @@ export default StyleSheet.create({
     lineHeight: 16,
     letterSpacing: -0.4,
   },
-  caption_1_semibold: {
+  caption_1_medium: {
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '500',
     lineHeight: 16,
     letterSpacing: -0.4,
   },
@@ -185,10 +185,10 @@ export default StyleSheet.create({
     lineHeight: 16,
     letterSpacing: -0.4,
   },
-  caption_1_semibold_italic: {
+  caption_1_medium_italic: {
     fontSize: 12,
     fontStyle: 'italic',
-    fontWeight: '600',
+    fontWeight: '500',
     lineHeight: 16,
     letterSpacing: -0.4,
   },
