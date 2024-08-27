@@ -8,6 +8,7 @@ import {addTicket} from '../../../redux/reducers/ticket/ticketSlice';
 import TicketItem from './components/ticketItem';
 import {generateTicket} from '../../../utils/helpers/ticketHelpers';
 import generalStyles from '../../../styles/generalStyles';
+import {showMessage} from 'react-native-flash-message';
 
 const Dashboard = () => {
   const ticketState = useAppSelector(state => state.ticket);
@@ -15,6 +16,12 @@ const Dashboard = () => {
 
   const onAddFlightPressed = () => {
     dispatch(addTicket(generateTicket()));
+    showMessage({
+      icon: 'success',
+      description: 'Başarılı',
+      message: 'Yeni Uçuş Kartı Oluşturuldu.',
+      type: 'success',
+    });
   };
 
   return (

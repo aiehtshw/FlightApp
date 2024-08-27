@@ -6,6 +6,7 @@ import {PlusIcon} from '../../../assets';
 import {useAppDispatch} from '../../../redux/store';
 import {addTicket} from '../../../redux/reducers/ticket/ticketSlice';
 import {generateTicket} from '../../../utils/helpers/ticketHelpers';
+import {showMessage} from 'react-native-flash-message';
 
 type CustomHeaderProps = {
   title: string;
@@ -16,6 +17,12 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({title}) => {
 
   const onAddFlightPressed = () => {
     dispatch(addTicket(generateTicket()));
+    showMessage({
+      icon: 'success',
+      description: 'Başarılı',
+      message: 'Yeni Uçuş Kartı Oluşturuldu.',
+      type: 'success',
+    });
   };
 
   return (

@@ -9,6 +9,7 @@ import styles from './styles';
 import typography from '../../styles/typography';
 import {closeModal} from '../../redux/reducers/ticket/ticketModalSlice';
 import {BlurView} from '@react-native-community/blur';
+import {showMessage} from 'react-native-flash-message';
 
 const TicketHighLightModal = () => {
   const ticketModalState = useAppSelector(state => state.ticketModal);
@@ -16,6 +17,12 @@ const TicketHighLightModal = () => {
   const onDeleteFlightPressed = () => {
     dispatch(deleteTicket(ticketModalState.ticketInfo.flightNumber));
     dispatch(closeModal());
+    showMessage({
+      icon: 'success',
+      description: 'Başarılı',
+      message: `${ticketModalState.ticketInfo.flightNumber} Uçuşu Başarıyla Silindi.`,
+      type: 'success',
+    });
   };
   const closeModalWithOverlay = () => {
     dispatch(closeModal());
