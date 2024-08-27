@@ -8,6 +8,8 @@ import {
   addTicket,
   deleteTicket,
 } from '../../../redux/reducers/ticket/ticketSlice';
+import TicketItem from './components/ticketItem';
+import {generateTicket} from '../../../utils/helpers/ticketHelpers';
 
 const Dashboard = () => {
   const ticketState = useAppSelector(state => state.ticket);
@@ -17,31 +19,35 @@ const Dashboard = () => {
     console.log('ticket state', ticketState);
   }, [ticketState]);
   const onAddFlightPressed = () => {
-    dispatch(
-      addTicket({
-        airlineCompany: 'asd',
-        arrivalCity: 'asd',
-        arrivalDate: 'asd',
-        arrivalHour: 'asd',
-        badgeText: 'asd',
-        departureCity: 'asd',
-        departureDate: 'asd',
-        departureHour: 'asd',
-        flightNumber: 'asd',
-      }),
-    );
+    dispatch(addTicket(generateTicket()));
   };
   const onDeleteFlightPressed = () => {
     dispatch(deleteTicket('asd'));
   };
   return (
     <Background>
-      <View style={styles.container}>
-        <EmptyCard onPress={onAddFlightPressed} />
-        <TouchableOpacity onPress={onDeleteFlightPressed}>
-          <Text>delete</Text>
-        </TouchableOpacity>
-      </View>
+      {ticketState.tickets.length === 0 ? (
+        <View style={styles.emptyContainer}>
+          <EmptyCard onPress={onAddFlightPressed} />
+          <TouchableOpacity onPress={onDeleteFlightPressed}>
+            <Text>delete</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        ticketState.tickets.map((item, index) => (
+          <TicketItem
+            airlineCompany={''}
+            arrivalCity={''}
+            arrivalDate={''}
+            arrivalHour={''}
+            badgeText={''}
+            departureCity={''}
+            departureDate={''}
+            departureHour={''}
+            flightNumber={''}
+          />
+        ))
+      )}
     </Background>
   );
 };
