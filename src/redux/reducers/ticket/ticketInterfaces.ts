@@ -12,6 +12,7 @@ export interface TicketInterface {
   departureDate: string;
   departureHour: string;
   flightNumber: string;
+  touchable?: boolean;
 }
 
 export interface TicketModal {

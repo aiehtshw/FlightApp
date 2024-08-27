@@ -3,6 +3,7 @@ import {Colors} from '../../../../../utils/colors';
 
 export default StyleSheet.create({
   container: {
+    backgroundColor: Colors.White,
     borderRadius: 14,
     borderWidth: 0.5,
     borderColor: Colors.Gray200,
@@ -75,7 +76,7 @@ export default StyleSheet.create({
     height: 16,
     width: 8,
     borderColor: Colors.Gray200,
-    backgroundColor: Colors.White,
+    backgroundColor: '#878D97',
     borderLeftWidth: 0,
     borderBottomRightRadius: 16,
     borderTopRightRadius: 16,
@@ -95,13 +96,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   borderLeft: {
+    marginLeft: -0.5,
     height: '100%',
-    borderColor: Colors.Gray200,
     justifyContent: 'center',
   },
   borderRight: {
+    marginRight: -0.5,
     height: '100%',
-    borderColor: Colors.Gray200,
     justifyContent: 'center',
   },
 });

@@ -3,6 +3,8 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 import {TicketInterface} from '../../../../../redux/reducers/ticket/ticketInterfaces';
 import {
+  EllipseIcon,
+  EllipseSymetricIcon, EllipseSymetricWhiteIcon, EllipseWhiteIcon,
   LandingIcon,
   PlaneCardIcon,
   TakeOffIcon,
@@ -23,6 +25,7 @@ const TicketItem: React.FC<TicketInterface> = ({
   badgeText,
   flightNumber,
   airlineCompany,
+  touchable = true,
 }) => {
   const dispatch = useAppDispatch();
   const onTicketItemPressed = () => {
@@ -44,12 +47,13 @@ const TicketItem: React.FC<TicketInterface> = ({
   };
   return (
     <TouchableOpacity
+      disabled={!touchable}
       key={flightNumber}
       style={styles.container}
       activeOpacity={0.7}
       onPress={onTicketItemPressed}>
       <View style={styles.borderLeft}>
-        <View style={styles.leftCardCircle} />
+        {touchable ? <EllipseWhiteIcon /> : <EllipseIcon />}
       </View>
       <View style={styles.content}>
         <View style={styles.companyContainer}>
@@ -116,7 +120,7 @@ const TicketItem: React.FC<TicketInterface> = ({
         </View>
       </View>
       <View style={styles.borderRight}>
-        <View style={styles.rightCardCircle} />
+        {touchable ? <EllipseSymetricWhiteIcon /> : <EllipseSymetricIcon />}
       </View>
     </TouchableOpacity>
   );

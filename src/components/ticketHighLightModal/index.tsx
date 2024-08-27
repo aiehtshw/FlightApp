@@ -34,7 +34,7 @@ const TicketHighLightModal = () => {
       animationType="fade">
       <BlurView
         style={styles.absolute}
-        blurType="light"
+        blurType="dark"
         blurAmount={10}
         reducedTransparencyFallbackColor="white"
       />
@@ -43,6 +43,7 @@ const TicketHighLightModal = () => {
         activeOpacity={1}
         onPress={closeModalWithOverlay}>
         <TicketItem
+          touchable={false}
           airlineCompany={ticketModalState.ticketInfo.airlineCompany}
           arrivalCity={ticketModalState.ticketInfo.arrivalCity}
           arrivalDate={ticketModalState.ticketInfo.arrivalDate}
@@ -53,6 +54,7 @@ const TicketHighLightModal = () => {
           departureHour={ticketModalState.ticketInfo.departureHour}
           flightNumber={ticketModalState.ticketInfo.flightNumber}
         />
+
         <BaseButton
           textStyle={[typography.body_semibold, styles.textStyle]}
           buttonStyle={styles.buttonStyle}
